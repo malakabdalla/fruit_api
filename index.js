@@ -1,12 +1,15 @@
 require('dotenv').config()
+const cors = require('cors')
 const express = require("express");
 const app = express();
 const port = process.env.PORT;
 const fruits = require("./fruits.json");
 const logger = require("./logger")
+
 //our routes goes here
 
 //middleware goes first
+app.use(cors())
 app.use(express.json());
 app.use(logger)
 
@@ -71,7 +74,7 @@ app.post("/fruits", (req, res) => {
   //add fruit
   //check if you have similar fruit
 });
-//.find will try to find the first item in the arry athat match if cant fin it it will return undefind
+//.find will try to find the first item in the Array that match if cant fin it it will return undefined
 
 //   console.log(fruit);
 
